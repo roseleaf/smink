@@ -1,4 +1,6 @@
 Smink::Application.routes.draw do
+  resources :users
+
   resources :links
    
   root to: 'links#new'
