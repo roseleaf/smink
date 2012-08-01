@@ -11,6 +11,13 @@
 </p>
 
 
+<% @links.each do |link| %>
+  <% if link.user_id == @user.id %>
+    <%= link_to link.short_url, link.long_url %>
+
+  <%end%>
+<% end %>
+
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

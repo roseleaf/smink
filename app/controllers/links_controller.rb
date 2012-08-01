@@ -29,11 +29,10 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
   end
 
-
-  # def generate_short_path(long_url)
-  #  @link.short_url = (0...8).map{65.+(rand(25)).chr}.join
-        #append short_url to root_path
-  # end
+  def destroy
+    @link.find(params[:id])
+    @link.destroy
+  end
 
   def go_to_link
     #select only the characters after the first "/"
@@ -41,5 +40,11 @@ class LinksController < ApplicationController
     redirect_to @link.long_url
   end
 
+  def index
+    @links = Links.where("(user_id = ? ) user.id")
+  end
 
+  # def is_owner?(user_id)
+  #   user_id == current_user.id
+  # end
 end
