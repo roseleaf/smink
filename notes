@@ -1,0 +1,30 @@
+String.hash
+
+
+
+User inputs long url into view
+
+User clicks button to convert
+
+Within Controller perform url shortening convertion and store long and short url pair in database (long_url, short_url)
+
+Open a new page with the short url link, link directs to the long url
+			
+
+
+url structure
+
+		base_path to get to our server  +  the "unique" extension that describes the long url	
+
+
+
+
+
+
+
+
+Generated new model:
+
+		rails generate ModelName
+
+

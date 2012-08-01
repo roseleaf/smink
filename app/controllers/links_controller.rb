@@ -8,7 +8,12 @@ class LinksController < ApplicationController
     @link = Link.new(params[:link])
     short_extension = (0...8).map{65.+(rand(25)).chr}.join
     @link.short_url = "localhost:3000/" + short_extension
-    @link.long_url = "http://" + @link.long_url 
+ 
+		if @link.long_url.match(/(^http:\/\/)|(^https:\/\/)/)  # contains http:// or https:// in the beginning
+			@link.long_url
+		else
+			@link.long_url = "http://" + @link.long_url 
+		end
 
     if current_user
       @link.user_id = current_user.id
