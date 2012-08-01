@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120801013057) do
+ActiveRecord::Schema.define(:version => 20120801224215) do
 
   create_table "links", :force => true do |t|
     t.string   "long_url"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(:version => 20120801013057) do
     t.string   "persistence_token"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+  end
+
+  create_table "visits", :force => true do |t|
+    t.integer  "link_id"
+    t.string   "country"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

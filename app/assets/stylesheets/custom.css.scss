@@ -1,3 +1,10 @@
+#logo{ font-size: 28px;
+float: left;
+color: white;
+margin-left: 20px;
+margin-top: 15px;
+text-decoration: none;}
+
 h1{
   //font-family: 'Lobster13Regular'; 
 }
@@ -23,6 +30,8 @@ h1{
     color-stop(0.59, rgb(28,69,91)),
     color-stop(0.8, rgb(56,97,119))
   );
+ }
+#navLinks{
   a{
   color: white;
   margin-left: 20px;
@@ -42,4 +51,18 @@ h1{
   height: 100%;
   padding-top: 25px;
   margin: 0 auto;
+}
+
+.notice{
+  width: 450px;
+  height: 50px;
+  text-align: center;
+  border: 2px solid #022B41;
+  border-radius: 8px;
+  padding-top: 20px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 25px;
+  color: #ff3686;
 }

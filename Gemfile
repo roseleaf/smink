@@ -5,6 +5,7 @@ gem 'authlogic'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'geocoder'  
 gem 'sqlite3'
 
 

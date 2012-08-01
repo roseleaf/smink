@@ -2,13 +2,14 @@
 
 <p>
   <b>Username:</b>
-  <%= @user.username %>
+  <%= @user.username.capitalize %>
 </p>
 
 <p>
   <b>Email:</b>
   <%= @user.email %>
 </p>
+
 
 
 <% @links.each do |link| %>
@@ -20,6 +21,7 @@
     <% end %>
   <%end%>
 <% end %>
+<br><br>
 
 
 

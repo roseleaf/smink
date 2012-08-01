@@ -8,16 +8,21 @@
 </head>
 <body>
    <div id="nav">
-        <h1>Smink Link</h1>
-        <% if current_user %>
-        <%= link_to "Edit Profile", edit_user_path(current_user.id)%>
-        <%= link_to "Logout", :logout%>
-        <% else %>
-        <%= link_to "Register", new_user_path%>  
-        <%= link_to "Login", :login %>
-        <% end %>
+        <%= link_to "Smink", root_path, id: "logo" %>
+        <div id="navLinks">
+          <% if current_user %>
+          <%= link_to "Edit Profile", edit_user_path(current_user.id)%>
+          <%= link_to "Logout", :logout%>
+          <% else %>
+          <%= link_to "Register", new_user_path%>  
+          <%= link_to "Login", :login %>
+          <% end %>
+        </div>
     </div>
   <div id="container">
+  <% if flash[:notice] %>
+    <div class = "notice"> <%=notice %></div> 
+  <% end %>
     <%= yield %>
   </div>
 </body>

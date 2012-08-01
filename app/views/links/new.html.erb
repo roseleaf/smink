@@ -1,8 +1,35 @@
+<% if @link.errors.any? %>
+<div id="error_explanation">
+  <div class="alert alert-error">
+    The form contains <%= pluralize(@link.errors.count , "error") %>
+  </div>
+  <ul>
+    <% @link.errors.full_messages.each do |msg| %>
+    <li>* <%= msg %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
 
+<h3>The one-step:</h3>
 <%= form_for(@link) do |f| %>
-  <%= f.label :long_url %>
+  <%= f.label :long_url, "Ugly Link: " %>
   <%= f.text_field :long_url %>
 
   <%= f.hidden_field :short_url %>
-  <%= f.submit "Shorten this url" %>
+  <%= f.submit "Generate smink url!" %>
 <% end %>
+
+<br>
+<br>
+
+<h3>Or create your own url extension: </h3>
+<%= form_for(@link) do |f| %>
+  <%= f.label :long_url, "Ugly Link: " %>
+  <%= f.text_field :long_url %><br>
+
+  <%= f.label :short_url, "Your Pretty url: " %>
+  <%= f.text_field :short_url %>
+
+  <%= f.submit "Generate smink url!" %>
+<% end %> 

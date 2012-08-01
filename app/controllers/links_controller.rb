@@ -5,11 +5,24 @@ class LinksController < ApplicationController
   end
 
   def create
+    @DIRTY_WORDS = ["shit","cunt","fuck","piss","damn","bitch"]
+
     @link = Link.new(params[:link])
-    short_extension = (0...8).map{65.+(rand(25)).chr}.join
-    @link.short_url = "localhost:3000/" + short_extension
- 
-		if @link.long_url.match(/(^http:\/\/)|(^https:\/\/)/)  # contains http:// or https:// in the beginning
+    if @link.short_url
+      if @DIRTY_WORDS.any? { |word| @link.short_url.include?(word)}
+        flash[:notice] = "Clean it up, @$$hole!"
+        render 'new'
+        return
+      else
+        @link.short_url = "smink.dev/" + @link.short_url
+      end
+    
+    else
+      short_extension = (0...8).map{65.+(rand(25)).chr}.join
+      @link.short_url =  short_extension
+    end
+		
+    if @link.long_url.match(/(^http:\/\/)|(^https:\/\/)/)  
 			@link.long_url
 		else
 			@link.long_url = "http://" + @link.long_url 
@@ -35,10 +48,19 @@ class LinksController < ApplicationController
     redirect_to @user
   end
 
-  def go_to_link
-    #select only the characters after the first "/"
-    @link = Link.find(params[:short_url])
-    redirect_to @link.long_url
+  # def go_to_link
+  #   @link = Link.find(params[:short_url])
+  #   #@remote_ip = request.env["HTTP_X_FORWARDED_FOR"]
+  #   @client_ip = request.remote_ip
+
+  #   logger.info "--------"
+  #   logger.info @client
+  #   redirect_to @link.long_url
+  # end
+
+  def country_from_ip(ip)
+    location_data = Geocoder.search(ip)
+    country = location_data[0].country
   end
 
   def index

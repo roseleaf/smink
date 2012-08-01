@@ -1,0 +1,33 @@
+respond_to 
+eg respond_to :html, :json
+can be given to the class (model), then actions index, show, create can be given respond_with(@object)
+if accessed by json this would return that object in json (a hash with another hash inside of it) (validates_for_ned )
+Put something like this in the method if there is a possibility of not enough info being sent or something like this
+  rescuq RestClient::UnprocessableEntity => e
+    puts e response
+  end
+
+  begin
+    ResctCLinet.poty('path.com/thing.json', {
+    :thing => {
+      :attribute => "here",
+      :trait => "here"
+    }
+
+    })
+  rescue RestClient::Exception => e
+    puts e response
+  end
+
+if thing.save
+  flash[:success] = "yay!" 
+else
+  flash[:failure] = "nooo!" 
+end
+
+"google broke?"
+
+
+Rails API for validations: Name your errors
+
+
