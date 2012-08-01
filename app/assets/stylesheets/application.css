@@ -11,3 +11,25 @@
  *= require_self
  *= require_tree .
  */
+@font-face {
+    font-family: 'ZantrokeRegular';
+    src: url(/assets/Zantroke-webfont.eot);
+    src: url(/assets/Zantroke-webfont.eot?#iefix) format('embedded-opentype'),
+         url(/assets/Zantroke-webfont.woff) format('woff'),
+         url(/assets/assets/Zantroke-webfont.ttf) format('truetype'),
+         url(/assets/Zantroke-webfont.svg#ZantrokeRegular) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Lobster13Regular';
+    src: url(/assets/Lobster_1.3-webfont.eot);
+    src: url(/assets/Lobster_1.3-webfont.eot?#iefix) format('embedded-opentype'),
+         url(/assets/Lobster_1.3-webfont.woff) format('woff'),
+         url(/assets/Lobster_1.3-webfont.ttf) format('truetype'),
+         url(/assets/Lobster_1.3-webfont.svg#Lobster13Regular) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

@@ -1,0 +1,45 @@
+h1{
+  //font-family: 'Lobster13Regular'; 
+}
+
+
+#nav{ 
+  height: 50px;
+  width: 100%; 
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(bottom, rgb(56,57,25) 34%, rgb(84,86,53) 67%, rgb(118,112,80) 84%);
+  background-image: linear-gradient(bottom, rgb(2,43,65) 18%, rgb(28,69,91) 59%, rgb(56,97,119) 80%);
+  background-image: -o-linear-gradient(bottom, rgb(2,43,65) 18%, rgb(28,69,91) 59%, rgb(56,97,119) 80%);
+  background-image: -moz-linear-gradient(bottom, rgb(2,43,65) 18%, rgb(28,69,91) 59%, rgb(56,97,119) 80%);
+  background-image: -webkit-linear-gradient(bottom, rgb(2,43,65) 18%, rgb(28,69,91) 59%, rgb(56,97,119) 80%);
+  background-image: -ms-linear-gradient(bottom, rgb(2,43,65) 18%, rgb(28,69,91) 59%, rgb(56,97,119) 80%);
+
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.18, rgb(2,43,65)),
+    color-stop(0.59, rgb(28,69,91)),
+    color-stop(0.8, rgb(56,97,119))
+  );
+  a{
+  color: white;
+  margin-left: 20px;
+  float:right;
+  margin-right: 20px;
+  padding-top: 18px;
+  font-weight: thin;
+  font-size: 20px;
+  }
+  h1{ float: left;
+  color: white;
+  padding-left: 18px;}
+}
+
+#container{
+  width: 800px;
+  height: 100%;
+  padding-top: 25px;
+  margin: 0 auto;
+}

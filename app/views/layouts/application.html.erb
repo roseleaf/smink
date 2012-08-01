@@ -8,16 +8,17 @@
 </head>
 <body>
    <div id="nav">
+        <h1>Smink Link</h1>
         <% if current_user %>
         <%= link_to "Edit Profile", edit_user_path(current_user.id)%>
         <%= link_to "Logout", :logout%>
         <% else %>
-        <%= link_to "Register", new_user_path%> | 
+        <%= link_to "Register", new_user_path%>  
         <%= link_to "Login", :login %>
         <% end %>
     </div>
-
-<%= yield %>
-
+  <div id="container">
+    <%= yield %>
+  </div>
 </body>
 </html>

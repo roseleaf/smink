@@ -30,8 +30,9 @@ class LinksController < ApplicationController
   end
 
   def destroy
-    @link.find(params[:id])
+    @link.find(params[:link_id])
     @link.destroy
+    redirect_to @user
   end
 
   def go_to_link
@@ -44,7 +45,5 @@ class LinksController < ApplicationController
     @links = Links.where("(user_id = ? ) user.id")
   end
 
-  # def is_owner?(user_id)
-  #   user_id == current_user.id
-  # end
+
 end
