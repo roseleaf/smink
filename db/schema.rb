@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120731234841) do
+ActiveRecord::Schema.define(:version => 20120801013057) do
 
   create_table "links", :force => true do |t|
     t.string   "long_url"
@@ -22,8 +22,13 @@ ActiveRecord::Schema.define(:version => 20120731234841) do
   end
 
   create_table "users", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "username"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
 end

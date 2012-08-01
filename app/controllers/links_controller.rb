@@ -9,6 +9,10 @@ class LinksController < ApplicationController
     short_extension = (0...8).map{65.+(rand(25)).chr}.join
     @link.short_url = "localhost:3000/" + short_extension
     @link.long_url = "http://" + @link.long_url 
+
+    if current_user
+      @link.user_id = current_user.id
+    end
     if @link.save
       redirect_to @link
     else
