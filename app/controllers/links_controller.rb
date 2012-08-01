@@ -8,7 +8,7 @@ class LinksController < ApplicationController
     @DIRTY_WORDS = ["shit","cunt","fuck","piss","damn","bitch"]
 
     @link = Link.new(params[:link])
-    if @link.short_url
+    if @link.short_url.length >= 1
       if @DIRTY_WORDS.any? { |word| @link.short_url.include?(word)}
         flash[:notice] = "Clean it up, @$$hole!"
         render 'new'
@@ -19,8 +19,11 @@ class LinksController < ApplicationController
     
     else
       short_extension = (0...8).map{65.+(rand(25)).chr}.join
-      @link.short_url =  short_extension
+      @link.short_url =  @link.short_url + short_extension
     end
+
+
+
 		
     if @link.long_url.match(/(^http:\/\/)|(^https:\/\/)/)  
 			@link.long_url

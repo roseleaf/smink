@@ -16,7 +16,7 @@
   <%= f.label :long_url, "Ugly Link: " %>
   <%= f.text_field :long_url %>
 
-  <%= f.hidden_field :short_url %>
+  <%= f.hidden_field :short_url, :value => ""%>
   <%= f.submit "Generate smink url!" %>
 <% end %>
 
@@ -32,4 +32,4 @@
   <%= f.text_field :short_url %>
 
   <%= f.submit "Generate smink url!" %>
-<% end %> 
+<% end %>
