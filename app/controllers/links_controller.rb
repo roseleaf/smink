@@ -19,7 +19,7 @@ class LinksController < ApplicationController
     
     else
       short_extension = (0...8).map{65.+(rand(25)).chr}.join
-      @link.short_url =  @link.short_url + short_extension
+      @link.short_url =  short_extension
     end
 
 
@@ -51,15 +51,14 @@ class LinksController < ApplicationController
     redirect_to @user
   end
 
-  # def go_to_link
-  #   @link = Link.find(params[:short_url])
-  #   #@remote_ip = request.env["HTTP_X_FORWARDED_FOR"]
-  #   @client_ip = request.remote_ip
+  def go_to_link
+    @link = Link.find_by_short_url(params[:short_url])
+    #@remote_ip = request.env["HTTP_X_FORWARDED_FOR"]
+    # @client_ip = request.remote_ip
 
-  #   logger.info "--------"
-  #   logger.info @client
-  #   redirect_to @link.long_url
-  # end
+
+    redirect_to @link.long_url
+  end
 
   def country_from_ip(ip)
     location_data = Geocoder.search(ip)

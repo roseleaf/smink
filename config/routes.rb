@@ -2,9 +2,10 @@ Smink::Application.routes.draw do
   resources :users, :links, :user_sessions
   root to: 'links#new'
 
-
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
+
+  match '/:short_url' => 'links#go_to_link'
 
   # get "sessions/name:string"
 
