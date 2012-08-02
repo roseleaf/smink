@@ -1,4 +1,16 @@
-<%= link_to "#{@link.short_url}", @link.long_url %>
+<%= link_to "http://smink.dev/#{@link.short_url}", @link.long_url %>
 <br>
+
+
 <p>for</p>
 <%= @link.long_url %>
+
+<% @visits.each do |visit| %>
+  <% if visit.link_id == @link.id %>
+    <br><%= visit.country %><br>
+
+  <%end%>
+<% end %>
+<br><br>
+
+

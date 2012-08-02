@@ -14,10 +14,11 @@
 
 <% @links.each do |link| %>
   <% if link.user_id == @user.id %>
-    <%= link_to "http://smink.dev/"+link.short_url, link.long_url %>
+    <br><%= link_to root_url+link.short_url, root_url+link.short_url %><br>
     <% if link.user_id == current_user.id %>
       <%= button_to 'Delete', { :controller => "links", :action => "destroy", :id => link.id },
           :confirm => "Are you sure?", :method => :delete %>
+      <%= link_to "View Stats", "/links/#{link.id}" %> <br>
     <% end %>
   <%end%>
 <% end %>

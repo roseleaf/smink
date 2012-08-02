@@ -14,7 +14,7 @@ class LinksController < ApplicationController
         render 'new'
         return
       else
-        @link.short_url = "smink.dev/" + @link.short_url
+        @link.short_url = @link.short_url
       end
     
     else
@@ -43,6 +43,7 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.find(params[:id])
+    @visits = Visit.all
   end
 
   def destroy
@@ -54,8 +55,11 @@ class LinksController < ApplicationController
   def go_to_link
     @link = Link.find_by_short_url(params[:short_url])
     #@remote_ip = request.env["HTTP_X_FORWARDED_FOR"]
-    # @client_ip = request.remote_ip
-
+    @client_ip = request.remote_ip
+    @visit = Visit.new
+    @visit.country = country_from_ip(@client_ip)
+    @visit.link_id = @link.id
+    @visit.save
 
     redirect_to @link.long_url
   end
@@ -63,6 +67,7 @@ class LinksController < ApplicationController
   def country_from_ip(ip)
     location_data = Geocoder.search(ip)
     country = location_data[0].country
+
   end
 
   def index
