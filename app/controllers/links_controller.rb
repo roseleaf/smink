@@ -46,9 +46,9 @@ class LinksController < ApplicationController
   end
 
   def destroy
-    @link.find(params[:link_id])
+    @link = Link.find(params[:id])
     @link.destroy
-    redirect_to @user
+    redirect_to :back
   end
 
   def go_to_link
